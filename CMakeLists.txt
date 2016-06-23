@@ -42,3 +42,9 @@ set(${PROJECT_NAME}_INCLUDE_DIRS 	${PROJECT_SOURCE_DIR}/include
 									${orocos_kdl_INCLUDE_DIRS}
 									${urdfdom_INCLUDE_DIRS}
 	CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
+
+IF(BUILD_TEST)
+	message(STATUS "Building with test executable")
+	add_executable(test ${PROJECT_SOURCE_DIR}/test/check_kdl_parser.cpp)
+	target_link_libraries(test ${PROJECT_NAME})
+ENDIF()
