@@ -8,6 +8,9 @@ include_directories(${KDL_Parser_INCLUDE_DIRS})
 target_link_libraries(KDL_Parser)
 ```
 
+### To test
+Run cmake by passing `-DBUILD_TEST=ON`. It will create an executable which accepts a urdf as command line argument.
+
 ### Know issues
 1. This accepts only a path to a urdf file. Loading from server is not supported
 2. cmake lacks install
