@@ -3,7 +3,7 @@ This is a URDF parser with KDL output which is based on [ROS stack](http://wiki.
 
 ### How to use
 ```cmake
-add_subdirectory(kdl_parser) # or however you call it
+add_subdirectory(urdf-to-kdl) # or however you call it
 include_directories(${KDL_Parser_INCLUDE_DIRS})
 target_link_libraries(KDL_Parser)
 ```
