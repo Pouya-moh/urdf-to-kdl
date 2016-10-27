@@ -7,7 +7,7 @@ file(GLOB KDL_Parser_SOURCES src/*.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-find_package(orocos_kdl REQUIRED)
+find_package(orocos_kdl REQUIRED HINTS /vol/cogimon)
 IF (orocos_kdl_FOUND)
 	message(STATUS "orocos_kdl found. Version: ${orocos_kdl_VERSION}")
 	include_directories(BEFORE SYSTEM ${orocos_kdl_INCLUDE_DIRS})
@@ -31,6 +31,11 @@ IF (urdfdom_FOUND)
 	link_directories(${urdfdom_LIBRARY_DIR})
 ENDIF()
 
+IF(NOT CMAKE_BUILD_TYPE)
+  SET(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING
+      "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel."
+      FORCE)
+ENDIF(NOT CMAKE_BUILD_TYPE)
 
 find_library(TinyXML NAMES tinyxml)
 
